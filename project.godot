@@ -12,4 +12,8 @@ config_version=5
 
 config/name="Whale Runner"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/whale.png"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
