@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://csqg01ohr7obm"]
+
+[ext_resource type="Texture2D" uid="uid://d1bb2th0sau3a" path="res://Assets/Player/Character1F_1_idle_5-sheet.png" id="1_0ia3x"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_hdvfq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qivh3"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hdvfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_0ia3x")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -16)
+shape = SubResource("CapsuleShape2D_qivh3")
