@@ -14,7 +14,7 @@ position = Vector2(133, 120)
 [node name="BackgroundCollisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundCollisions"]
-polygon = PackedVector2Array(35, -138, 35, 218, 1028, 220, 1027, -139, 1010, -139, 1009, 188, 49, 189, 51, -140)
+polygon = PackedVector2Array(13, -248, 12, 158, 32, 160, 32, 184, 32, 200, 688, 200, 712, 200, 712, 192, 760, 184, 768, 184, 768, 152, 824, 152, 824, 120, 872, 120, 872, 96, 928, 96, 928, 72, 944, 72, 944, 56, 968, 56, 968, -248, 984, -248, 984, 256, -8, 256, -8, -248)
 
 [node name="Background1" type="Sprite2D" parent="."]
 visible = false
@@ -26,5 +26,5 @@ position = Vector2(492, 4)
 texture = ExtResource("3_sv3uy")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_30u2g")]
-position = Vector2(74, 43)
+position = Vector2(88, -128)
 motion_mode = 1

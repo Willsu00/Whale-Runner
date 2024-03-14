@@ -12,7 +12,3 @@ func move_toward_position(target_position,delta):
 	var direction = global_position.direction_to(target_position)
 	velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 	move_and_slide()
-	
-	
-
-

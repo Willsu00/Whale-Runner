@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var friction = 256
 @export var gravity = 200
 @export var jump_force = 128
-@export var max_fall_velocity = 128
+@export var max_fall_velocity = 200 #128
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
