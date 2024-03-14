@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
 
+func _enter_tree():
+	MainInstance.player = self
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -21,6 +23,10 @@ func _physics_process(delta):
 	jump_check()
 	update_animations(input_axis)
 	move_and_slide()
+
+
+func _exit_tree():
+	MainInstance.player = null
 
 func is_moving(input_axis):
 	return input_axis != 0

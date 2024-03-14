@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://yofw4rsuhleu"]
+
+[ext_resource type="Texture2D" uid="uid://dymjq3nvx51ua" path="res://Assets/Icon/whale.png" id="1_8sat8"]
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_hm2vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqi5m"]
+size = Vector2(408.043, 408.043)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_hm2vx")
+
+[node name="Whale" type="Sprite2D" parent="."]
+position = Vector2(-13, -13)
+scale = Vector2(0.0361247, 0.0361247)
+texture = ExtResource("1_8sat8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13, -13)
+scale = Vector2(0.0637187, 0.0637187)
+shape = SubResource("RectangleShape2D_eqi5m")

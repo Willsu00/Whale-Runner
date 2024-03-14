@@ -15,6 +15,10 @@ run/main_scene="res://World/world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Assets/Icon/whale.png"
 
+[autoload]
+
+MainInstance="*res://Enemy/MainInstance.gd"
+
 [display]
 
 window/size/viewport_width=320
