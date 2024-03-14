@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration = 512
-@export var max_speed = 64
+@export var max_speed = 100
 @export var friction = 256
 @export var gravity = 200
 @export var jump_force = 128
