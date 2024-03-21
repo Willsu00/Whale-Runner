@@ -23,7 +23,7 @@ position = Vector2(530, 40)
 texture = ExtResource("2_4tgdq")
 
 [node name="Background2" type="Sprite2D" parent="."]
-position = Vector2(492, 4)
+position = Vector2(493, 4)
 texture = ExtResource("3_sv3uy")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_30u2g")]

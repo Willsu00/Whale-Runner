@@ -10,5 +10,6 @@ func _ready():
 
 
 func _on_body_entered(body):
+	print("entered")
 	if body.has_method("death"):
 		body.death()
