@@ -57,3 +57,7 @@ func update_animations(input_axis):
 		animation_player.play("idle")
 	if not is_on_floor():
 		animation_player.play("jump")
+
+func death():
+	queue_free()
+	get_tree().change_scene_to_file("res://World/world.tscn")

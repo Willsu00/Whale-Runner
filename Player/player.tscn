@@ -179,6 +179,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 7
 floor_snap_length = 2.0
 script = ExtResource("1_hdvfq")
 

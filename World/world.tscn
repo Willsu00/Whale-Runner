@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwja83qbqmlmu"]
+[gd_scene load_steps=6 format=3 uid="uid://dwja83qbqmlmu"]
 
 [ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="1_3xrdv"]
 [ext_resource type="Texture2D" uid="uid://bftipfj5yfby" path="res://Assets/World/background1.jpg" id="2_4tgdq"]
 [ext_resource type="Texture2D" uid="uid://chpo8l8ijm08n" path="res://Assets/World/background2.png" id="3_sv3uy"]
 [ext_resource type="PackedScene" uid="uid://yofw4rsuhleu" path="res://Enemy/enemy.tscn" id="4_30u2g"]
+[ext_resource type="PackedScene" uid="uid://dppem3dtswtka" path="res://Obstacles/Spikes.tscn" id="5_kjqye"]
 
 [node name="World" type="Node2D"]
 
@@ -28,3 +29,6 @@ texture = ExtResource("3_sv3uy")
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_30u2g")]
 position = Vector2(88, -128)
 motion_mode = 1
+
+[node name="Spikes" parent="." instance=ExtResource("5_kjqye")]
+position = Vector2(343, 200)
