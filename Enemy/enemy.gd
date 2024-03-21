@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration = 150
-@export var max_speed = 60
-
+@export var max_speed = 110
 @onready var pirate_ghost_placeholder = $PirateGhostPlaceholder
 
 func is_moving(input_axis):
