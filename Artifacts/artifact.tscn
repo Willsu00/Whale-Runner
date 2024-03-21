@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqxmkk3glx8or"]
+
+[ext_resource type="Script" path="res://Artifacts/artifact.gd" id="1_0adwq"]
+[ext_resource type="Texture2D" uid="uid://igjy5h1sons6" path="res://Assets/Artifact/[64x64] Potions.png" id="1_7hm2f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qp4x"]
+radius = 20.025
+
+[node name="Artifacts" type="Area2D" groups=["Artifact"]]
+collision_layer = 8
+script = ExtResource("1_0adwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_7hm2f")
+hframes = 3
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1qp4x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

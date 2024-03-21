@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dh84evyg1ncpd" path="res://Assets/Enemy/pirate_ghost_placeholder.png" id="2_qp232"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_exer4"]
-radius = 219.716
-height = 910.251
+radius = 125.552
+height = 251.104
 
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 2
