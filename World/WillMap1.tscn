@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckv1hspp33b7r"]
+[gd_scene load_steps=8 format=3 uid="uid://ckv1hspp33b7r"]
 
 [ext_resource type="Texture2D" uid="uid://c7bi6mypmv71n" path="res://Assets/World/1918774_orig.jpg" id="1_3wwpx"]
 [ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="2_u2une"]
 [ext_resource type="PackedScene" uid="uid://bqxmkk3glx8or" path="res://Artifacts/artifact.tscn" id="3_nrkgm"]
 [ext_resource type="PackedScene" uid="uid://dppem3dtswtka" path="res://Obstacles/Spikes.tscn" id="4_uyxxq"]
+[ext_resource type="Script" path="res://World/doortemp.gd" id="5_npxui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11aph"]
 size = Vector2(55, 550)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujskf"]
+size = Vector2(13, 114.75)
 
 [node name="WillMap1" type="Node2D"]
 
@@ -31,7 +35,7 @@ shape = SubResource("RectangleShape2D_11aph")
 position = Vector2(20, 125)
 
 [node name="Artifacts" parent="." instance=ExtResource("3_nrkgm")]
-position = Vector2(941, 115)
+position = Vector2(875, 107)
 
 [node name="Artifacts2" parent="." instance=ExtResource("3_nrkgm")]
 position = Vector2(480, 59)
@@ -50,3 +54,12 @@ position = Vector2(762, 251)
 
 [node name="Spikes4" parent="." instance=ExtResource("4_uyxxq")]
 position = Vector2(791, 251)
+
+[node name="doortemp" type="Area2D" parent="."]
+script = ExtResource("5_npxui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doortemp"]
+position = Vector2(973.5, 72.375)
+shape = SubResource("RectangleShape2D_ujskf")
+
+[connection signal="body_entered" from="doortemp" to="doortemp" method="_on_body_entered"]

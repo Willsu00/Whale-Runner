@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://gjxdxntx116q"]
+
+[ext_resource type="Texture2D" uid="uid://w5jplea4sl4s" path="res://Assets/World/drake-live-aug-17-2018-u-billboard-1548-compressed.jpg" id="1_bb7kb"]
+[ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="2_2fqnh"]
+
+[node name="DK" type="Node2D"]
+
+[node name="Drake-live-aug-17-2018-u-billboard-1548-compressed" type="Sprite2D" parent="."]
+position = Vector2(268, 207)
+scale = Vector2(0.415994, 0.405762)
+texture = ExtResource("1_bb7kb")
+
+[node name="Player" parent="." instance=ExtResource("2_2fqnh")]
+position = Vector2(75, 43)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(43, -17, 54, 56, 92, 56, 118, 68, 148, 81, 163, 92, 189, 92, 220, 91, 229, 90, 229, 73, 222, 55, 228, 53, 231, 28, 252, 17, 269, 18, 283, 31, 283, 54, 290, 55, 280, 91, 294, 95, 311, 96, 340, 94, 380, 87, 418, 69, 462, 54, 483, 41, 498, 23, 500, 39, 529, 39, 531, -76, 594, -69, 563, 181, -6, 186, -8, -119, 43, -101)
