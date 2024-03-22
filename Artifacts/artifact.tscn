@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://igjy5h1sons6" path="res://Assets/Artifact/[64x64] Potions.png" id="1_7hm2f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qp4x"]
-radius = 20.025
+radius = 15.0333
 
 [node name="Artifacts" type="Area2D" groups=["Artifact"]]
 collision_layer = 8
 script = ExtResource("1_0adwq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -3)
+scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("1_7hm2f")
 hframes = 3
 vframes = 8

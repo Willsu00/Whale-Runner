@@ -41,10 +41,10 @@ motion_mode = 1
 position = Vector2(343, 200)
 
 [node name="Artefact" parent="." instance=ExtResource("6_0sds4")]
-position = Vector2(483, 164)
+position = Vector2(486, 169)
 
 [node name="Artefact2" parent="." instance=ExtResource("6_0sds4")]
-position = Vector2(844, 86)
+position = Vector2(849, 98)
 
 [node name="tempdoor" type="Area2D" parent="."]
 

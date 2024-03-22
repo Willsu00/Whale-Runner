@@ -31,13 +31,13 @@ shape = SubResource("RectangleShape2D_11aph")
 position = Vector2(20, 125)
 
 [node name="Artifacts" parent="." instance=ExtResource("3_nrkgm")]
-position = Vector2(925, 99)
+position = Vector2(941, 115)
 
 [node name="Artifacts2" parent="." instance=ExtResource("3_nrkgm")]
-position = Vector2(476, 32)
+position = Vector2(480, 59)
 
 [node name="Artifacts3" parent="." instance=ExtResource("3_nrkgm")]
-position = Vector2(721, 157)
+position = Vector2(718, 172)
 
 [node name="Spikes" parent="." instance=ExtResource("4_uyxxq")]
 position = Vector2(176, 247)
