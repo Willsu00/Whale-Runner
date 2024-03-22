@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwja83qbqmlmu"]
+[gd_scene load_steps=9 format=3 uid="uid://dwja83qbqmlmu"]
 
 [ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="1_3xrdv"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_klfff"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://yofw4rsuhleu" path="res://Enemy/enemy.tscn" id="4_30u2g"]
 [ext_resource type="PackedScene" uid="uid://dppem3dtswtka" path="res://Obstacles/Spikes.tscn" id="5_kjqye"]
 [ext_resource type="PackedScene" uid="uid://bqxmkk3glx8or" path="res://Artifacts/artifact.tscn" id="6_0sds4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noulh"]
+size = Vector2(20, 104)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_klfff")
@@ -42,3 +45,11 @@ position = Vector2(483, 164)
 
 [node name="Artefact2" parent="." instance=ExtResource("6_0sds4")]
 position = Vector2(844, 86)
+
+[node name="tempdoor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempdoor"]
+position = Vector2(968, -4)
+shape = SubResource("RectangleShape2D_noulh")
+
+[connection signal="body_entered" from="tempdoor" to="." method="_on_tempdoor_body_entered"]
