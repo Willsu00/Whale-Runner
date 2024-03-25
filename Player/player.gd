@@ -52,7 +52,10 @@ func jump_check():
 func update_animations(input_axis):
 	if is_moving(input_axis):
 		animation_player.play("run")
-		sprite_2d.scale.x = sign(input_axis)
+		if input_axis > 0:
+			sprite_2d.flip_h = false
+		elif input_axis < 0:
+			sprite_2d.flip_h = true
 	else:
 		animation_player.play("idle")
 	if not is_on_floor():

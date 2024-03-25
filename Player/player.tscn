@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://csqg01ohr7obm"]
+[gd_scene load_steps=9 format=3 uid="uid://csqg01ohr7obm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hdvfq"]
 [ext_resource type="Texture2D" uid="uid://c0jwcpq0xqqu7" path="res://Assets/Player/run_anim_skele.png" id="2_3jefc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qivh3"]
-radius = 5.0
+radius = 4.0
 
 [sub_resource type="Animation" id="Animation_78ewu"]
 resource_name = "idle"
@@ -127,10 +127,51 @@ tracks/2/keys = {
 "values": [Vector2(0.07, 0.07), Vector2(0.07, 0.07)]
 }
 
+[sub_resource type="Animation" id="Animation_il5k6"]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3jefc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.00253448),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.07, 0.07)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_01l01"]
 _data = {
 "RESET": SubResource("Animation_3ssfo"),
 "idle": SubResource("Animation_78ewu"),
+"jump": SubResource("Animation_il5k6"),
 "run": SubResource("Animation_e8g0i")
 }
 
@@ -138,6 +179,7 @@ _data = {
 collision_mask = 31
 floor_snap_length = 2.0
 script = ExtResource("1_hdvfq")
+gravity = 350
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
@@ -148,7 +190,7 @@ hframes = 5
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -16)
+position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_qivh3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
