@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7ns1cmkr1uxk"]
+
+[ext_resource type="Texture2D" uid="uid://cendslgcd5r6y" path="res://Assets/World/be79f4fd-18d2-4c5c-a25a-c79ad9501de4.webp" id="1_fgom7"]
+[ext_resource type="PackedScene" uid="uid://cobq5f5oahxhb" path="res://Test/doortemp.tscn" id="2_q7hly"]
+[ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="3_i4ufp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csmya"]
+size = Vector2(29, 1029)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv5a1"]
+size = Vector2(106, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f540"]
+size = Vector2(362, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofe2j"]
+size = Vector2(186, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7x7eb"]
+size = Vector2(106, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr6r"]
+size = Vector2(336, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt3rb"]
+size = Vector2(350, 20)
+
+[node name="TempMap" type="Node2D"]
+
+[node name="Be79f4Fd-18d2-4c5c-a25a-c79Ad9501De4" type="Sprite2D" parent="."]
+position = Vector2(745, -246)
+texture = ExtResource("1_fgom7")
+
+[node name="BackgroundCollisions" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(-17, -249)
+shape = SubResource("RectangleShape2D_csmya")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(1527, -246)
+shape = SubResource("RectangleShape2D_csmya")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(51, -8)
+shape = SubResource("RectangleShape2D_mv5a1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(276, -92)
+shape = SubResource("RectangleShape2D_6f540")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(76, -278)
+shape = SubResource("RectangleShape2D_ofe2j")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(302, -249)
+shape = SubResource("RectangleShape2D_7x7eb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(572, -120.5)
+shape = SubResource("RectangleShape2D_bgr6r")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BackgroundCollisions"]
+position = Vector2(984, -138)
+shape = SubResource("RectangleShape2D_rt3rb")
+
+[node name="doortemp" parent="." instance=ExtResource("2_q7hly")]
+position = Vector2(176, -278)
+
+[node name="Player" parent="." instance=ExtResource("3_i4ufp")]
+position = Vector2(156, -119)
+jump_force = 200

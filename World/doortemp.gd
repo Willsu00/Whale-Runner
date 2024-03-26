@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	get_tree().change_scene_to_file("res://World/DK.tscn")
+	get_tree().change_scene_to_file("res://World/temp_map.tscn")
