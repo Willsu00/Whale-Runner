@@ -1,24 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwja83qbqmlmu"]
+[gd_scene load_steps=11 format=3 uid="uid://dwja83qbqmlmu"]
 
-[ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="1_3xrdv"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_klfff"]
 [ext_resource type="PackedScene" uid="uid://yofw4rsuhleu" path="res://Enemy/enemy.tscn" id="4_30u2g"]
-[ext_resource type="PackedScene" uid="uid://dppem3dtswtka" path="res://Obstacles/Spikes.tscn" id="5_kjqye"]
 [ext_resource type="PackedScene" uid="uid://bqxmkk3glx8or" path="res://Artifacts/artifact.tscn" id="6_0sds4"]
 [ext_resource type="Texture2D" uid="uid://dl0mblctrtkhb" path="res://Assets/World/DALL·E 2024-03-26 17.19.09 - Dive into a darker, more ominous segment of a 2D side-scrolling platformer, where players navigate a subterranean cavern formed from massive bones. Th.webp" id="6_ww4da"]
 [ext_resource type="PackedScene" uid="uid://cobq5f5oahxhb" path="res://Test/doortemp.tscn" id="7_mt5hn"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/PlayerPhantomCamera2DTween.tres" id="8_l4c2p"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_ousfv"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="9_ct80x"]
+[ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="9_poncu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd370"]
 size = Vector2(29, 1029)
 
 [node name="World" type="Node2D"]
+position = Vector2(10, 757)
 script = ExtResource("1_klfff")
 
-[node name="Player" parent="." instance=ExtResource("1_3xrdv")]
-z_index = 999
-position = Vector2(438, 131)
-
-[node name="Dall·e2024-03-2617_19_09-DiveIntoADarker,MoreOminousSegmentOfA2dSide-scrollingPlatformer,WherePlayersNavigateASubterraneanCavernFormedFromMassiveBones_Th" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(745, -246)
 texture = ExtResource("6_ww4da")
 
@@ -36,12 +35,9 @@ shape = SubResource("RectangleShape2D_fd370")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundCollisions"]
 polygon = PackedVector2Array(19, 122, 94, 121, 94, 132, 230, 132, 231, 172, 556, 172, 557, 231, 827, 232, 828, 173, 1258, 170, 1262, 88, 1300, 89, 1301, 44, 1469, 43, 1471, 264, 21, 265)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_30u2g")]
-position = Vector2(88, -128)
+[node name="Enemy" parent="." instance=ExtResource("4_30u2g")]
+position = Vector2(921, -140)
 motion_mode = 1
-
-[node name="Spikes" parent="." instance=ExtResource("5_kjqye")]
-position = Vector2(414, 172)
 
 [node name="Artefact" parent="." instance=ExtResource("6_0sds4")]
 position = Vector2(619, 209)
@@ -51,3 +47,41 @@ position = Vector2(858, 147)
 
 [node name="doortemp" parent="." instance=ExtResource("7_mt5hn")]
 position = Vector2(490, -87)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(76, -25)
+zoom = Vector2(1.5, 1.5)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("8_ousfv")
+
+[node name="Player" type="Node" parent="."]
+
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(86, 732)
+script = ExtResource("9_ct80x")
+priority_override = false
+priority = 5
+zoom = Vector2(1.5, 1.5)
+follow_mode = 2
+follow_target = NodePath("../Player")
+follow_parameters/target_offset = Vector2(0, -120)
+follow_parameters/damping = true
+follow_parameters/damping_value = 5.0
+frame_preview = true
+pixel_perfect = false
+limit/draw_limits = true
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/limit_node_target = NodePath("")
+limit/smoothed = false
+tween_parameters = ExtResource("8_l4c2p")
+tween_on_load = false
+inactive_update_mode = 0
+
+[node name="Player" parent="Player" instance=ExtResource("9_poncu")]
+position = Vector2(86, 852)

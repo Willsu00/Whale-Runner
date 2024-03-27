@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7ns1cmkr1uxk"]
+[gd_scene load_steps=14 format=3 uid="uid://c7ns1cmkr1uxk"]
 
 [ext_resource type="Texture2D" uid="uid://cendslgcd5r6y" path="res://Assets/World/be79f4fd-18d2-4c5c-a25a-c79ad9501de4.webp" id="1_fgom7"]
 [ext_resource type="PackedScene" uid="uid://cobq5f5oahxhb" path="res://Test/doortemp.tscn" id="2_q7hly"]
 [ext_resource type="PackedScene" uid="uid://csqg01ohr7obm" path="res://Player/player.tscn" id="3_i4ufp"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_otfqy"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="4_sqhn7"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/PlayerPhantomCamera2DTween.tres" id="5_8766h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csmya"]
 size = Vector2(29, 1029)
@@ -26,6 +29,7 @@ size = Vector2(336, 37)
 size = Vector2(350, 20)
 
 [node name="TempMap" type="Node2D"]
+position = Vector2(33, 766)
 
 [node name="Be79f4Fd-18d2-4c5c-a25a-c79Ad9501De4" type="Sprite2D" parent="."]
 position = Vector2(745, -246)
@@ -69,6 +73,40 @@ shape = SubResource("RectangleShape2D_rt3rb")
 [node name="doortemp" parent="." instance=ExtResource("2_q7hly")]
 position = Vector2(176, -278)
 
-[node name="Player" parent="." instance=ExtResource("3_i4ufp")]
-position = Vector2(156, -119)
-jump_force = 200
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(25.9984, -469)
+zoom = Vector2(1.5, 1.5)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("3_otfqy")
+
+[node name="Player" type="Node" parent="."]
+
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(58.9985, 297)
+script = ExtResource("4_sqhn7")
+priority_override = false
+priority = 5
+zoom = Vector2(1.5, 1.5)
+follow_mode = 2
+follow_target = NodePath("../Player")
+follow_parameters/target_offset = Vector2(0, -120)
+follow_parameters/damping = true
+follow_parameters/damping_value = 5.0
+frame_preview = true
+pixel_perfect = false
+limit/draw_limits = true
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/limit_node_target = NodePath("")
+limit/smoothed = false
+tween_parameters = ExtResource("5_8766h")
+tween_on_load = false
+inactive_update_mode = 0
+
+[node name="Player" parent="Player" instance=ExtResource("3_i4ufp")]
+position = Vector2(59, 417)
